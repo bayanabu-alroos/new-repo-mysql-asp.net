@@ -1,0 +1,49 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!-- Sign Up Start -->
+<div class="container-fluid">
+    <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="col-12 col-sm-8 col-md-10 col-lg-8 col-xl-6">
+            <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <a href="index.html" class="">
+                        <h5 class="text-primary"><i class="fa fa-user-edit me-2"></i></h5>
+                    </a>
+                    <h3>Login </h3>
+                </div>
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+                <form asp-action="Login" method="post">
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control" id="floatingPassword" asp-for="Email" />
+                        <label for="floatingPassword" asp-for="Email"></label>
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" id="floatingPassword" asp-for="Password" />
+                        <label for="floatingPassword" asp-for="Password"></label>
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" asp-for="RememberMe">
+                            <label class="form-check-label" for="exampleCheck1" asp-for="RememberMe"></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Login</button>
+                </form>
+
+                <p class="text-center mb-0">Create an account  <a asp-controller="Home" asp-action="Register">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sign Up End -->

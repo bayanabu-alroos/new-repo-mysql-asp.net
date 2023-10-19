@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+        </div>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="col-sm-12 col-xl-12">
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    </div>
+}
